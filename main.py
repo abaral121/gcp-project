@@ -14,6 +14,7 @@
 
 # [START gae_python38_app]
 # [START gae_python3_app]
+import logging 
 from flask import Flask
 
 
@@ -26,6 +27,39 @@ app = Flask(__name__)
 def hello():
     """Return a friendly HTTP greeting."""
     return 'Hello World!'
+
+@app.route('/<n>')
+def triangle(n):
+        
+    # number of spaces
+    k = n - 1
+ 
+    # outer loop to handle number of rows
+    for i in range(0, n):
+     
+        # inner loop to handle number spaces
+        # values changing acc. to requirement
+        for j in range(0, k):
+            print(end=" ")
+     
+        # decrementing k after each loop
+        k = k - 1
+     
+        # inner loop to handle number of columns
+        # values changing acc. to outer loop
+        for j in range(0, i+1):
+         
+            # printing stars
+            print("* ", end="")
+     
+        # ending line after each row
+        print("\r")
+        
+    return "this makes a nice triangle"
+        
+# Driver Code
+n = 5
+triangle(n)
 
 
 if __name__ == '__main__':
