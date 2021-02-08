@@ -16,10 +16,6 @@
 import logging
 
 from flask import Flask
-
-
-
-
 app = Flask(__name__)
 
 
@@ -30,28 +26,15 @@ def hello():
     
 @app.route('/<size>')
 def printTriangle(size):
-    # Start with starCount being 0.
     starCount = 0
-    # Count from 0 (inclusive) to size (exclusive),
-    # and for each number i that you count,
     size=int(size)
     s=""
     for i in range(0, size):
-        # count from 0 (inclusive) to i (inclusive),
-        # and for each number j that you count,
         for j in range(0, i+1):
-            # print a "*" without printing a newline,
             s=s+ "*"
-            # increment starCount.
             starCount += 1
-            # When you finish counting on j,
-
-        # print a newline ("\n").
         s=s+ '<br/>'
-        # When you finish counting on i,
-
-    # your answer is starCount.
-    return "Here is the result for the given input:"+'<br/>'+s 
+    return ":"+'<br/>'+s 
 
 
 @app.errorhandler(500)
